@@ -1,6 +1,6 @@
 Some knowledge...
 
-Registers
+# Registers
 | Registers | ABI Name | Description |
 | ------------- | -------------- | -------------- |
 | `pc` | `pc` | Program Counter (where the next instruction is...) |
@@ -13,3 +13,32 @@ Registers
 | `x12` - `x17` | `a2` - `a7` | Function Args |
 | `x18` - `x27` | `s0` - `s11` | Temp Registers saved across calls |
 | `x28` - `x31` | `t3` - `t6` | Temp Registers |
+
+
+# CPU Modes
+M -> OpenSBI/BIOS Mode
+S -> Kernel Mode
+U -> User Mode
+
+# Memory access
+`lw` and `sw`
+
+
+```asm
+lw a0, (a1) // Reads a word (32bit) from address in a1 and store it in a0
+            // a0 = *a1
+sw a0, (a1) // Store a word in a0 to the address in a1
+            // *a1 = a0
+```
+
+
+# Branch instructions
+```asm
+bnez a0, <label> // Go to label if a0 is not zero
+  // continue if zero
+<label>:
+  // additional logic if above satisfied.
+```
+
+There's also `beq` and `blt`
+
