@@ -42,3 +42,9 @@ bnez a0, <label> // Go to label if a0 is not zero
 
 There's also `beq` and `blt`
 
+# Inline assembly in C
+```C
+__asm__ __volatile__("assembly" : output operands : input operands : clobbered registers);
+```
+
+
